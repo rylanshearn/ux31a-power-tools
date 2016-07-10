@@ -41,3 +41,34 @@ sudo cp turboboost.sh /etc/init.d/
 sudo ln -s /etc/init.d/turboboost.sh /etc/rc2.d/S06turboboost.sh
 ```
 
+###zenPower.sh
+Modifies a number of power saving settings by adding some kernel boot arguments and enabling Agressive Link Power Management  (DANGER: please test these arguments on your own system before relying on this script!)
+
+####Details
+#####Kernel boot argument changes
+- frame buffer compression - reduces the memory bandwidth on screen refreshes
+- Intel RC6 - GPU enters a lower power state when idling
+- DRM vblank off delay - Direct Rendering Manager reduces wakeup events and theoretically saves power
+- NMI Watchdog - turning off saves a fraction of power
+
+######grub boot loader backup
+- the grub boot loader will be backed up at ~/Documents/ , copy this backup file back to /etc/default/ if you have problems booting
+
+####WARNING
+- This script also enables Agressive Link Power Management (ALPM)
+    * There is a possibility that ALPM may aggressively power down the SATA link prematurely or incorrectly and cause data corruption or loss
+    * please test on your own system, otherwise apply this at your own risk
+- If ALPM is causing problems, you can switch it off with the following line:
+
+```sh
+sudo rm /etc/pm/config.d/sata_alpm
+```
+
+####Usage
+
+```sh
+#make executable
+chmod +x
+#run
+sudo ./zenPower.sh
+```
