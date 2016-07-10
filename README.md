@@ -1,4 +1,4 @@
-# ux31a-power-tools
+#zen-power
 This repo includes scripts for optimising power usage on Asus Zenbook UX31A laptops running Ubuntu (up to 15.10).
 
 ![Image of lapton](https://www.asus.com/media/global/products/NOzAOtadWyTCclA9/P_500.jpg)
@@ -44,6 +44,15 @@ sudo ln -s /etc/init.d/turboboost.sh /etc/rc2.d/S06turboboost.sh
 ###zenPower.sh
 Modifies a number of power saving settings by adding some kernel boot arguments and enabling Agressive Link Power Management  (DANGER: please test these arguments on your own system before relying on this script!)
 
+####Usage
+
+```sh
+#make executable
+chmod +x
+#run
+sudo ./zenPower.sh
+```
+
 ####Details
 #####Kernel boot argument changes
 - frame buffer compression - reduces the memory bandwidth on screen refreshes
@@ -51,7 +60,7 @@ Modifies a number of power saving settings by adding some kernel boot arguments 
 - DRM vblank off delay - Direct Rendering Manager reduces wakeup events and theoretically saves power
 - NMI Watchdog - turning off saves a fraction of power
 
-######grub boot loader backup
+#####Grub boot loader backup
 - the grub boot loader will be backed up at ~/Documents/ , copy this backup file back to /etc/default/ if you have problems booting
 
 ####WARNING
@@ -64,11 +73,3 @@ Modifies a number of power saving settings by adding some kernel boot arguments 
 sudo rm /etc/pm/config.d/sata_alpm
 ```
 
-####Usage
-
-```sh
-#make executable
-chmod +x
-#run
-sudo ./zenPower.sh
-```
