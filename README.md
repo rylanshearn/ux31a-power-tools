@@ -4,7 +4,7 @@ This repo includes scripts for optimising power usage on Asus Zenbook UX31A lapt
 ![Image of lapton](https://www.asus.com/media/global/products/NOzAOtadWyTCclA9/P_500.jpg)
 
 ## Requirements
-- These scripts should work on most desktop linux distributions but they have only been tested on Ubuntu. At least one of them `<turboboost.sh>` does not work on Ubuntu 16.04 but does work on 15.10. If you have any problems please make a new issue.
+- These scripts should work on most desktop linux distributions but they have only been tested on Ubuntu. At least one of them `turboboost.sh` does not work on Ubuntu 16.04 but does work on 15.10. If you have any problems please make a new issue.
 
 ##Script descriptions
 
@@ -19,12 +19,12 @@ sudo apt install linux-tools-generic linux-tools-common
 ```
 
 ####Usage
-1. check the state of your cpu with `<cpupower frequency-info>`
+1. check the state of your cpu with `cpupower frequency-info`
     * you should see "boot state support: Supported: yes Active: yes"
     * we want supported and active to be 'no'
-2. make the script executable with `<chmod 755 turboboost.sh>`
-3. run `</.turboboost.sh>`
-4. check the state of your cpu with `<cpupower frequency-info>`
+2. make the script executable with `chmod 755 turboboost.sh`
+3. run `/.turboboost.sh`
+4. check the state of your cpu with `cpupower frequency-info`
     * now you should see: "boot state support: Supported: no Active: no"
 
 ####Run at startup
